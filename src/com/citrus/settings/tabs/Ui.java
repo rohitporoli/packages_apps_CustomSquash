@@ -40,6 +40,10 @@ import com.citrus.settings.preference.SystemSettingSwitchPreference;
 public class Ui extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+private static final String PREF_QUICK_PULLDOWN_FP = "quick_pulldown_fp";
+
+private SystemSettingSwitchPreference mQuickPulldownFp;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +52,11 @@ public class Ui extends SettingsPreferenceFragment implements
 
         PreferenceScreen prefScreen = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
+
+    mQuickPulldownFp = (SystemSettingSwitchPreference) findPreference(PREF_QUICK_PULLDOWN_FP);
+        mQuickPulldownFp.setChecked((Settings.System.getInt(getContentResolver(),
+                Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN_FP, 0) == 1));
+        mQuickPulldownFp.setOnPreferenceChangeListener(this);
 
     }
 
@@ -68,6 +77,13 @@ public class Ui extends SettingsPreferenceFragment implements
 
      public boolean onPreferenceChange(Preference preference, Object objValue) {
        final String key = preference.getKey();
+
+     if (preference == mQuickPulldownFp) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN_FP, value ? 1 : 0);
+            return true;
+        }
        return true;
     }
 }

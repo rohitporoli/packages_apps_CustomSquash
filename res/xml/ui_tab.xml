@@ -34,5 +34,17 @@
         android:title="@string/wake_when_plugged_or_unplugged_title"
         android:summary="@string/wake_when_plugged_or_unplugged_summary"
         android:defaultValue="true" />
+
+    <PreferenceCategory
+            android:key="category_fp_gestures"
+            android:title="@string/fp_gestures_cat_title">
+
+    <com.citrus.settings.preference.SystemSettingSwitchPreference
+        android:key="quick_pulldown_fp"
+        android:title="@string/quick_pulldown_fp_title"
+        android:summary="@string/quick_pulldown_fp_summary"
+        android:defaultValue="false" />
+
+    </PreferenceCategory>
  
 </PreferenceScreen>

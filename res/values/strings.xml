@@ -811,4 +811,9 @@
   
     <!-- Additional Button Settings -->
     <string name="device_additional_buttons_title">Notification Slider</string>
+
+    <!-- Fingerprint Gestures -->
+    <string name="fp_gestures_cat_title">Fingerprint Gestures</string>
+    <string name="quick_pulldown_fp_title">Fingerprint quick pulldown</string>
+    <string name="quick_pulldown_fp_summary">Expand the quick settings panel with only one swipe of the fingerprint sensor</string>
 </resources>
